@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using APICoreBase.Extensions;
 using APICoreBase.Middlewares;
+using IdentityCore.AppSettings;
 
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("TokenSettings"));
 
 //Add DbContext with SQL Server connection string
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -24,16 +26,47 @@ builder.Services.AddControllers();
 
 builder.AddLogger();
 
-// Add OpenTelemetry Tracing
-//builder.Services.AddOpenTelemetry()
-//    .WithTracing(tracerProviderBuilder =>
-//    {
-//        tracerProviderBuilder
-//            .SetResourceBuilder(ResourceBuilder.CreateDefault().AddService("IdentityManagementApi"))
-//            .AddAspNetCoreInstrumentation()
-//            .AddConsoleExporter(); // Exports traces to the console
-//    });
+// Add services to the container
+//builder.Services.AddAuthentication(options =>
+//{
+//    options.DefaultAuthenticateScheme = "Bearer";
+//    options.DefaultChallengeScheme = "GitHub";
+//})
 
+//.AddOAuth("GitHub", options =>
+//{
+//    options.ClientId = builder.Configuration["GitHub:ClientId"];
+//    options.ClientSecret = builder.Configuration["GitHub:ClientSecret"];
+//    options.CallbackPath = new PathString("/signin-github");
+
+//    // GitHub OAuth Endpoints
+//    options.AuthorizationEndpoint = "https://github.com/login/oauth/authorize";
+//    options.TokenEndpoint = "https://github.com/login/oauth/access_token";
+//    options.UserInformationEndpoint = "https://api.github.com/user";
+
+//    // Scopes
+//    options.Scope.Add("user:email"); // You can add more scopes as needed
+
+//    // Save tokens
+//    options.SaveTokens = true;
+
+//    // Optional: Handle GitHub user information
+//    options.Events = new OAuthEvents
+//    {
+//        OnCreatingTicket = async context =>
+//        {
+//            var request = new HttpRequestMessage(HttpMethod.Get, context.Options.UserInformationEndpoint);
+//            request.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+//            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", context.AccessToken);
+
+//            var response = await context.Backchannel.SendAsync(request, context.HttpContext.RequestAborted);
+//            response.EnsureSuccessStatusCode();
+
+//            var user = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+//            context.RunClaimActions(user.RootElement);
+//        }
+//    };
+//});
 
 var app = builder.Build();
 app.UseSerilogRequestLogging();

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OAuth" Version="2.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.12" />
     <PackageReference Include="Serilog.Formatting.Compact" Version="3.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
@@ -37,9 +38,10 @@
     <Reference Include="APICoreBase">
       <HintPath>..\..\..\..\APICoreBase\APICoreBase\bin\Debug\net8.0\APICoreBase.dll</HintPath>
     </Reference>
-    <Reference Include="EasyOrderCore">
-      <HintPath>..\..\..\..\EasyOrderCore\EasyOrderCore\bin\Debug\net8.0\EasyOrderCore.dll</HintPath>
+    <Reference Include="IdentityCore">
+      <HintPath>..\..\..\..\APICoreBase\IdentityCore\bin\Debug\net8.0\IdentityCore.dll</HintPath>
     </Reference>
+    
   </ItemGroup>
 
   
