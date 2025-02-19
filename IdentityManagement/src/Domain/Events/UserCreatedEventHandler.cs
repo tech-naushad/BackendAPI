@@ -1,7 +1,7 @@
 ﻿using APIContract.DomainEvents;
 using MediatR;
 
-namespace Infrastructure.DomainEventHandlers
+namespace Domain.Events
 {
     public class UserCreatedEventHandler : INotificationHandler<UserCreatedEvent>
     {
