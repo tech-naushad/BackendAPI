@@ -3,9 +3,9 @@ using IdentityManagement.Persistence;
 using IdentityManagement.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using APICoreBase.Extensions;
-using APICoreBase.Middlewares;
-using IdentityCore.AppSettings;
+using APICore.AppSettings;
+using APICore.Extensions;
+using APICore.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfraServices();
+builder.Services.AddIdentityCoreServices();
 
 builder.Services.AddControllers();
 
@@ -95,6 +96,7 @@ if (app.Environment.IsDevelopment())
 
 // Add Middleware
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 

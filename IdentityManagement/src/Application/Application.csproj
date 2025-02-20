@@ -20,6 +20,8 @@
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="9.0.1" />
+	  <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.5.0" />
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.5.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,9 +30,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="APIContract">
-      <HintPath>..\..\..\..\APICoreBase\APIContract\bin\Debug\net8.0\APIContract.dll</HintPath>
+    <Reference Include="APICore">
+      <HintPath>..\..\..\..\APICoreBase\APICore\bin\Debug\net8.0\APICore.dll</HintPath>
     </Reference>
   </ItemGroup>
-
+ 
 </Project>
