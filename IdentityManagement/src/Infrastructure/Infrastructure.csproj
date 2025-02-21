@@ -14,6 +14,9 @@
     <Reference Include="APIContract">
       <HintPath>..\..\..\..\APICoreBase\APIContract\bin\Debug\net8.0\APIContract.dll</HintPath>
     </Reference>
+    <Reference Include="MessageBrokers">
+      <HintPath>..\..\..\..\AzureServices\MessageBrokers\MessageBrokers\bin\Debug\net8.0\MessageBrokers.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

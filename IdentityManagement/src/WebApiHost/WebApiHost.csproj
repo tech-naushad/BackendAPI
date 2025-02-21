@@ -35,6 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="APICore">
+      <HintPath>..\..\..\..\APICoreBase\APICore\bin\Debug\net8.0\APICore.dll</HintPath>
+    </Reference>
     <Reference Include="APICoreBase">
       <HintPath>..\..\..\..\APICoreBase\APICoreBase\bin\Debug\net8.0\APICoreBase.dll</HintPath>
     </Reference>

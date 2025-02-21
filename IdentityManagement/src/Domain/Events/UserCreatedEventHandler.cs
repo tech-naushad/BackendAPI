@@ -1,4 +1,4 @@
-﻿using APIContract.DomainEvents;
+﻿using APICore.DomainEvents;
 using MediatR;
 
 namespace Domain.Events

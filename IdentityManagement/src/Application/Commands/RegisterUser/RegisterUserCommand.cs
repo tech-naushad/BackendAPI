@@ -1,4 +1,4 @@
-﻿using APIContract.DomainEvents;
+﻿using APICore.DomainEvents;
 using IdentityManagement.Domain.Entities;
 using IdentityManagement.Persistence.Repositories.Interfaces;
 using MediatR;

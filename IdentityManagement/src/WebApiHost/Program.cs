@@ -3,9 +3,9 @@ using IdentityManagement.Persistence;
 using IdentityManagement.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
-using APICoreBase.Extensions;
-using APICoreBase.Middlewares;
-using IdentityCore.AppSettings;
+using APICore.AppSettings;
+using APICore.Extensions;
+using APICore.Middlewares;
 
 
 var builder = WebApplication.CreateBuilder(args);
