@@ -1,5 +1,6 @@
 ﻿using IdentityManagement.Domain.Entities;
 using IdentityManagement.Persistence.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,11 @@ namespace IdentityManagement.Persistence.Repositories
         public Task<ApplicationUser> GetByIdAsync(long id)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ApplicationUser> GetByUserNameOrEmailAsync(string userName,string password)
+        {
+           return await _context.ApplicationUsers.FirstOrDefaultAsync(x=>x.UserName==userName && x.Password==password);
         }
 
         public Task<ApplicationUser> UpdateAsync(ApplicationUser entity, CancellationToken cancellationToken)

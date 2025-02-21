@@ -9,6 +9,6 @@ namespace IdentityManagement.Persistence.Repositories.Interfaces
 {
     public interface IUserRepository: IRepository<ApplicationUser>
     {
-
+        Task<ApplicationUser> GetByUserNameOrEmailAsync(string userName, string password);
     }
 }

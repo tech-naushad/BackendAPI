@@ -1,3 +1,4 @@
+using IdentityManagement.Application.Commands.Login;
 using IdentityManagement.Application.Commands.RegisterUser;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
@@ -23,6 +24,14 @@ namespace IdentityManagement.API.Controllers
             var result =  await _mediator.Send(command);
             return Ok(result);
         }
+
+        [HttpPost("Token")]
+        public async Task<IActionResult> GenerateToken(LoginCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
         [HttpGet("login")]
         public IActionResult Login(string returnUrl = null)
         {

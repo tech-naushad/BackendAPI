@@ -21,6 +21,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfraServices();
+builder.Services.AddIdentityCoreServices();
 
 builder.Services.AddControllers();
 
@@ -95,6 +96,7 @@ if (app.Environment.IsDevelopment())
 
 // Add Middleware
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
