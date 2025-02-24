@@ -6,6 +6,9 @@ using Serilog;
 using APICore.AppSettings;
 using APICore.Extensions;
 using APICore.Middlewares;
+using MessageBrokers.Extensions;
+using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,11 +20,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Add services to the container.
 builder.Services.AddSwaggerGen();
 
+ 
+
 //Application, Infra and Persitence services config
 builder.Services.AddApplicationServices();
 builder.Services.AddPersistenceServices();
 builder.Services.AddInfraServices();
 builder.Services.AddIdentityCoreServices();
+builder.Services.AddMesageBrokerServices(builder.Configuration);
 
 builder.Services.AddControllers();
 

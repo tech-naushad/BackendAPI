@@ -30,6 +30,7 @@
 	  <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0" />
 	  <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.5.0" />
 	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.5.0" />
+	  <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.18.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +41,9 @@
   <ItemGroup>
     <Reference Include="APICore">
       <HintPath>..\..\..\..\APICoreBase\APICore\bin\Debug\net8.0\APICore.dll</HintPath>
+    </Reference>
+    <Reference Include="MessageBrokers">
+      <HintPath>..\..\..\..\AzureServices\MessageBrokers\MessageBrokers\bin\Debug\net8.0\MessageBrokers.dll</HintPath>
     </Reference>
   </ItemGroup>
 

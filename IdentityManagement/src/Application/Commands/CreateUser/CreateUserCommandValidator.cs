@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace IdentityManagement.Application.Commands.RegisterUser
+namespace IdentityManagement.Application.Commands.CreateUser
 {
-    public class RegisterUserCommandValidator : AbstractValidator<RegisterUserCommand>
+    public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
-        public RegisterUserCommandValidator()
+        public CreateUserCommandValidator()
         {
             RuleFor(x => x.Name).NotEmpty().NotNull()
                 .MaximumLength(30).MinimumLength(6).WithMessage("Name is required with length between 6 to 30 characters");

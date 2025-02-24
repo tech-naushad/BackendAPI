@@ -1,5 +1,5 @@
 using IdentityManagement.Application.Commands.Login;
-using IdentityManagement.Application.Commands.RegisterUser;
+using IdentityManagement.Application.Commands.CreateUser;
 using MediatR;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +19,7 @@ namespace IdentityManagement.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterAsync([FromBody] RegisterUserCommand command)
+        public async Task<IActionResult> CreateUserAsync([FromBody] CreateUserCommand command)
         {
             var result =  await _mediator.Send(command);
             return Ok(result);
